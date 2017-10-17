@@ -16,4 +16,16 @@ public class GreetingController {
         return new Greeting(counter.incrementAndGet(),
                             String.format(template, name));
     }
+
+    @RequestMapping("/favorite")
+    public Favorite favorite(@RequestParam("name") String name
+            , @RequestParam("food") String favfood) {
+        return new Favorite(name,favfood);
+    }
+
+    @RequestMapping("/add")
+    public Integer sum(@RequestParam("first") Integer number,
+                       @RequestParam("second") Integer number2) {
+        return number+number2;
+    }
 }
